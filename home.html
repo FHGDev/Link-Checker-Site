@@ -4,29 +4,28 @@
   <head>
     <meta charset="utf8">
     <script src="https://unpkg.com/snekfetch">
-      const get = snekfetch.get
       const link = document.getElementById("link-box").value
-      const button = document.getElementById("button1")
-      
-      button.onclick = () => {
-      if (link == null) return document.getElementById("safethingy").innerHTML = "Enter a link.";
-        get(`https://spoopy.link/api/${link}`)
-      .then(res => {
-          let chain = res.body.chain[0]
-          let url = chain.url
-          let safe = Boolean(chain.safe)
-          let box = document.getElementById("safethingy")
-          box.innerHTML = `Link: ${url}\nSafe: ${safe}`
+      function request() {
+        snekfetch.get(`https://spoopy.link/api/${link}`)
+        .then(res => {
+          const body = res.body
+          const url = body.chain[0].url
+          const safe = body.chain[0].safe
+          
+          const txt = document.getElementById("safethingy")
+          txt.innerHTML = `Link Checker\nYour link: ${url}\nIs your link safe? ${safe}`
         })
-      })
+        .catch(console.error)
+      }
     </script>
   </head>
   
   <body>
     <center>
-      <h1 id="safethingy">FHGDev Link Checker</h1>
-      <input type=text id="link-box">
-      <input type=submit id="button1" value="Check link">
+      <h1>FHGDev Link Checker</h1>
+      <input type=text id="link-box"><br>
+      <input onclick="request()" type=button id="button1" value="Check link"><br>
+      <p id="safethingy"></p>
     </center>
   </body>
 </html>
