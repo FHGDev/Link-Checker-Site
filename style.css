@@ -1,6 +1,6 @@
 h1 {
-  color: Black;
-  font-size: 50px;
+  color: White;
+  font-size: 30px;
 }
 
 button {
@@ -8,10 +8,13 @@ button {
 }
 
 p {
-  font-size: 25;
+  font-size: 15px;
 }
 
 #link-box {
-  color: Black;
-  border: none;
+  color: White;
+}
+
+html {
+  background-color: navy;
 }
