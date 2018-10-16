@@ -8,7 +8,7 @@
       const link = document.getElementById("link-box").value
       const button = document.getElementById("button1")
       
-      button.addEventListener("click", () => {
+      button.onclick = () => {
       if (link == null) return document.getElementById("safethingy").innerHTML = "Enter a link.";
         get(`https://spoopy.link/api/${link}`)
       .then(res => {
