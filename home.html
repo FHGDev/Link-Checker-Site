@@ -17,8 +17,7 @@
           let url = chain.url
           let safe = Boolean(chain.safe)
           let box = document.getElementById("safethingy")
-          let txt = box.innerHTML
-          txt = `Link: ${url}\nSafe: ${safe}`
+          box.innerHTML = `Link: ${url}\nSafe: ${safe}`
         })
       })
     </script>
