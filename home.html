@@ -7,21 +7,26 @@
     <script>
       const get = snekfetch.get
       const link = document.getElementById("link-box").value
+      const button = document.getElementById("button1")
       
-      get(`https://spoopy.link/api/${link}`)
+      button.addEventListener("click", () => {
+      if (link == null) return document.getElementById("safethingy").innerHTML = "Enter a link.";
+        get(`https://spoopy.link/api/${link}`)
       .then(res => {
-        let chain = res.body.chain[0]
-        let url = chain.url
-        let safe = Boolean(chain.safe)
-        let box = document.getElementById("safethingy")
-        let txt = box.innerHTML
-        txt = `Link: ${url}\nSafe: ${safe}`
+          let chain = res.body.chain[0]
+          let url = chain.url
+          let safe = Boolean(chain.safe)
+          let box = document.getElementById("safethingy")
+          let txt = box.innerHTML
+          txt = `Link: ${url}\nSafe: ${safe}`
+        })
       })
     </script>
   </head>
   
   <body>
     <input type=text id="link-box">
+    <input type=button id="button1" value="Check link">
     <h1 id="safethingy"></h1>
   </body>
 </html>
