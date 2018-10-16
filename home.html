@@ -3,7 +3,15 @@
 <html>
   <head>
     <meta charset="utf8">
-    <script src="https://unpkg.com/snekfetch">
+  </head>
+  
+  <body>
+    <center>
+      <h1>FHGDev Link Checker</h1>
+      <p id="safethingy"></p>
+      <input type=text id="link-box"><br>
+      <input onclick="request()" type=button id="button1" value="Check link"><br>
+      <script src="https://unpkg.com/snekfetch">
       const link = document.getElementById("link-box").value
       function request() {
         snekfetch.get(`https://spoopy.link/api/${link}`)
@@ -18,14 +26,6 @@
         .catch(console.error)
       }
     </script>
-  </head>
-  
-  <body>
-    <center>
-      <h1>FHGDev Link Checker</h1>
-      <p id="safethingy"></p>
-      <input type=text id="link-box"><br>
-      <input onclick="request()" type=button id="button1" value="Check link"><br>
     </center>
   </body>
 </html>
